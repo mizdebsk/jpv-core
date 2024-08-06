@@ -104,6 +104,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.8.0</version>
         <configuration>
           <sourceFileExcludes>
             <exclude>**/org/fedoraproject/javapackages/validator/validators/*.java</exclude>
@@ -114,6 +115,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.1</version>
         <configuration>
           <excludes>
             <exclude>**/org/fedoraproject/javapackages/validator/validators/*.java</exclude>
