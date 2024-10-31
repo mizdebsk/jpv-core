@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="US-ASCII"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!--
+ ! Copyright (c) 2024 Red Hat, Inc.
+ !
+ ! Licensed under the Apache License, Version 2.0 (the "License");
+ ! you may not use this file except in compliance with the License.
+ ! You may obtain a copy of the License at
+ !
+ !     http://www.apache.org/licenses/LICENSE-2.0
+ !
+ ! Unless required by applicable law or agreed to in writing, software
+ ! distributed under the License is distributed on an "AS IS" BASIS,
+ ! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ! See the License for the specific language governing permissions and
+ ! limitations under the License.
+ `-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.kojan</groupId>
     <artifactId>kojan-parent</artifactId>
-    <version>3</version>
+    <version>6</version>
   </parent>
   <artifactId>jpv-core</artifactId>
   <version>ba5d4df</version>
+  <properties>
+    <kojan.javaRelease>22</kojan.javaRelease>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>io.kojan</groupId>
@@ -81,7 +98,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <release>22</release>
           <excludes>
             <exclude>**/org/fedoraproject/javapackages/validator/validators/*.java</exclude>
             <exclude>**/org/fedoraproject/javapackages/validator/util/*.java</exclude>
@@ -126,10 +142,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <executions>
           <execution>
             <id>download-jpv</id>
-            <phase>generate-sources</phase>
             <goals>
               <goal>download-single</goal>
             </goals>
+            <phase>generate-sources</phase>
             <configuration>
               <url>https://github.com/fedora-java/javapackages-validator</url>
               <fromFile>archive/${project.version}.zip</fromFile>
@@ -145,10 +161,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <executions>
           <execution>
             <id>attach-artifacts</id>
-            <phase>generate-sources</phase>
             <goals>
               <goal>attach-artifact</goal>
             </goals>
+            <phase>generate-sources</phase>
             <configuration>
               <artifacts>
                 <artifact>
@@ -161,10 +177,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           </execution>
           <execution>
             <id>add-source</id>
-            <phase>generate-sources</phase>
             <goals>
               <goal>add-source</goal>
             </goals>
+            <phase>generate-sources</phase>
             <configuration>
               <sources>
                 <source>${project.build.directory}/unpacked/src/main/java</source>
@@ -173,10 +189,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           </execution>
           <execution>
             <id>add-resource</id>
-            <phase>generate-resources</phase>
             <goals>
               <goal>add-resource</goal>
             </goals>
+            <phase>generate-resources</phase>
             <configuration>
               <resources>
                 <resource>
@@ -190,10 +206,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           </execution>
           <execution>
             <id>add-test-source</id>
-            <phase>generate-test-sources</phase>
             <goals>
               <goal>add-test-source</goal>
             </goals>
+            <phase>generate-test-sources</phase>
             <configuration>
               <sources>
                 <source>${project.build.directory}/unpacked/src/test/java</source>
@@ -202,10 +218,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           </execution>
           <execution>
             <id>add-test-resource</id>
-            <phase>generate-test-resources</phase>
             <goals>
               <goal>add-test-resource</goal>
             </goals>
+            <phase>generate-test-resources</phase>
             <configuration>
               <resources>
                 <resource>
@@ -223,10 +239,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <executions>
           <execution>
             <id>unpack</id>
-            <phase>generate-sources</phase>
             <goals>
               <goal>unpack</goal>
             </goals>
+            <phase>generate-sources</phase>
             <configuration>
               <artifactItems>
                 <artifactItem>
