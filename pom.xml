@@ -23,6 +23,13 @@
   </parent>
   <artifactId>jpv-core</artifactId>
   <version>ba5d4df</version>
+  <name>JPV Core</name>
+  <description>Core parts of Javapackages Validator</description>
+  <url>https://github.com/mizdebsk/jpv-core</url>
+  <inceptionYear>2024</inceptionYear>
+  <scm>
+    <url>https://github.com/mizdebsk/jpv-core.git</url>
+  </scm>
   <properties>
     <kojan.javaRelease>22</kojan.javaRelease>
   </properties>
